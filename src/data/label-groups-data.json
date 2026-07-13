@@ -1,0 +1,15 @@
+[
+  {
+    "name": "south-east",
+    "places": [
+      "jermuk",
+      "sisian",
+      "tatev",
+      "goris"
+    ],
+    "offsets": {
+      "x": 1556,
+      "y": 1270
+    }
+  }
+]

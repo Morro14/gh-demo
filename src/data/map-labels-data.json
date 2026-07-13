@@ -1,0 +1,193 @@
+[
+    {
+        "name": "ulgyur",
+        "type": "placeLabel",
+        "options": {
+            "offsets": {
+                "x": 247,
+                "y": 484
+            }
+        }
+    },
+    {
+        "name": "yerevan",
+        "type": "placeLabel",
+        "options": {
+            "offsets": {
+                "x": -12,
+                "y": 874
+            }
+        }
+    },
+    {
+        "name": "areni-church",
+        "type": "placeLabel",
+        "options": {
+            "offsets": {
+                "x": 66,
+                "y": 1072
+            }
+        }
+    },
+    {
+        "name": "noravank",
+        "type": "placeLabel",
+        "options": {
+            "offsets": {
+                "x": 340,
+                "y": 1326
+            }
+        }
+    },
+    {
+        "name": "dadal",
+        "type": "placeLabel",
+        "options": {
+            "offsets": {
+                "x": 801,
+                "y": 1057
+            }
+        }
+    },
+    {
+        "name": "yegheg_museum",
+        "type": "placeLabel",
+        "options": {
+            "offsets": {
+                "x": 810,
+                "y": 814
+            }
+        }
+    },
+    {
+        "name": "surb_khach",
+        "type": "placeLabel",
+        "options": {
+            "offsets": {
+                "x": 1258,
+                "y": 688
+            }
+        }
+    },
+    {
+        "name": "vayotz_sar",
+        "type": "placeLabel",
+        "options": {
+            "offsets": {
+                "x": 1667,
+                "y": 577
+            }
+        }
+    },
+    {
+        "name": "tanaat",
+        "type": "placeLabel",
+        "options": {
+            "offsets": {
+                "x": 1195,
+                "y": 724
+            }
+        }
+    },
+    {
+        "name": "spitakavor",
+        "type": "placeLabel",
+        "options": {
+            "offsets": {
+                "x": 1014,
+                "y": 383
+            }
+        }
+    },
+    {
+        "name": "yeghegis",
+        "type": "placeLabel",
+        "options": {
+            "offsets": {
+                "x": 1017,
+                "y": 109
+            }
+        }
+    },
+    {
+        "name": "tsahats",
+        "type": "placeLabel",
+        "options": {
+            "offsets": {
+                "x": 960,
+                "y": -13
+            }
+        }
+    },
+    {
+        "name": "sevan",
+        "type": "placeLabel",
+        "options": {
+            "offsets": {
+                "x": 540,
+                "y": 23
+            }
+        }
+    },
+    {
+        "name": "goris",
+        "type": "placeLabel",
+        "options": {
+            "offsets": {
+                "x": 75,
+                "y": 84
+            }
+        }
+    },
+    {
+        "name": "tatev",
+        "type": "placeLabel",
+        "options": {
+            "offsets": {
+                "x": -25,
+                "y": 94
+            }
+        }
+    },
+    {
+        "name": "sisian",
+        "type": "placeLabel",
+        "options": {
+            "offsets": {
+                "x": -50,
+                "y": -15
+            }
+        }
+    },
+    {
+        "name": "jermuk",
+        "type": "placeLabel",
+        "options": {
+            "offsets": {
+                "x": 1,
+                "y": 1
+            }
+        }
+    },
+    {
+        "name": "gladzor_museum",
+        "type": "placeLabel",
+        "options": {
+            "offsets": {
+                "x": 1058,
+                "y": 652
+            }
+        }
+    },
+    {
+        "name": "gravi_dza",
+        "type": "placeLabel",
+        "options": {
+            "offsets": {
+                "x": 831,
+                "y": 1190
+            },
+            "importanceLevel": 2
+        }
+    }
+]

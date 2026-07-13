@@ -1,0 +1,106 @@
+/* @import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Ysabeau+Infant:ital,wght@0,1..1000;1,1..1000&family=Ysabeau+SC:wght@1..1000&family=Ysabeau:ital,wght@0,1..1000;1,1..1000&family=Zen+Kaku+Gothic+Antique&display=swap"); */
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&family=Ysabeau+SC:wght@1..1000&family=Ysabeau:ital,wght@0,1..1000;1,1..1000&family=Zen+Kaku+Gothic+Antique&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap');
+@import "tailwindcss";
+@import "./carousel.css";
+@import "./responsive.css";
+@import "./animations.css";
+
+body {
+  @apply m-0 p-0 flex justify-center font-serif bg-bg;
+}
+#root {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+@theme {
+  --color-red-error: #ff2c2c;
+  --color-red-error-full: #ff615c;
+  --color-text-main: #4c3b33;
+  --color-bg: #fefdfc;
+  --color-line: #4c3b3350;
+  --color-accent: #764c38;
+  --color-accent-light: #ba876f;
+  --color-accent-lighter: #bab3b0;
+  --color-olive: #d1d8b8;
+  --color-olive-light: #C4D587;
+  --color-olive-dark: #8ca47c;
+  --color-red-bg-error: #ff9991;
+  --color-red-bg-error-light: #fec0bb;
+  --color-red-error: #e44d48;
+  --color-apricot: #ffe5b6;
+  --color-apricot-light: #fff0d3;
+  --color-apricot-superlight: #fff3de;
+  --color-primary: #fb966e;
+  --color-primary-light: #F6A889;
+  --color-peach-light-1: #f8bc82;
+  --color-peach-light: #f6c18d;
+  --color-peach-lighter: #ffdbbd;
+  --color-peach-accent: #fbbb84;
+  --color-peach-superlight: #ffe6d2;
+  --color-peach: #efa76a;
+  --color-peach-dark: #ce6f1e;
+  --color-line-light: #ccc;
+  --color-gray-warm-light: #f1f1f1;
+  --color-gray-warm-inactive: #c5c4c3;
+  --color-gray-warm-mid: #73706f;
+  --color-gray-line: #d9d9d9;
+  --color-green-warm: #699a57;
+  --color-green-warm-light: #a6cd98;
+  --color-black-transparent: #000000bf;
+  --color-warning: #FF4800;
+  --font-sans: "Source Sans 3", sans-serif;
+  --font-source-sans: "Source Sans 3", sans-serif;
+  --font-serif: "Ysabeau", serif;
+  --font-sc: "Ysabeau SC", serif;
+}
+
+h1 {
+  @apply md:text-4xl text-3xl font-medium;
+}
+h2 {
+  @apply md:text-3xl text-2xl mb-9 font-medium;
+}
+h3 {
+  @apply md:text-[22px] text-xl mb-4 font-medium;
+}
+h4 {
+  @apply text-xl mb-4 font-medium;
+}
+h5 {
+  @apply text-lg font-medium;
+}
+.float-visible {
+  display: flex;
+}
+
+.float-hidden {
+  display: none;
+}
+.line-gray-gradient {
+  background: #fefdfc;
+  background: linear-gradient(
+    0deg,
+    rgba(254, 253, 252, 1) 0%,
+    rgba(217, 217, 217, 1) 68%
+  );
+}
+.header-gradient {
+  background: linear-gradient(
+    90deg,
+    rgba(254, 253, 252, 1) 0%,
+    rgba(244, 244, 244, 1) 53%,
+    rgba(255, 255, 255, 1) 95%
+  );
+}
+.button-primary {
+  @apply bg-peach text-white rounded-sm cursor-pointer font-sans font-medium flex justify-center items-center pt-1;
+}
+button {
+  @apply hover:cursor-pointer
+}
+.map-text-shadow {
+  @apply text-shadow-[-1px_-1px_0px_#FFFFFF,1px_1px_0px_#FFFFFF,-1px_1px_0px_#FFFFFF,1px_-1px_0px_#FFFFFF]!
+}
