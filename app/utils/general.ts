@@ -14,7 +14,7 @@ export const getAxiosInstance = (baseURL: "media" | "api" = "api") => {
     api: SERVER_URL,
   };
   const axiosInstance = axios.create({
-    baseURL: baseURLs[baseURL] + "/api/",
+    baseURL: baseURLs[baseURL] + "/api-demo/",
     // timeout: 10000,
   });
   axiosInstance.interceptors.request.use((config) => {

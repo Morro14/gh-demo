@@ -4,6 +4,7 @@ import HttpBackend from "i18next-http-backend";
 import LanguageDetector from "i18next-browser-languagedetector";
 
 const BASE_URL = import.meta.env.VITE_SERVER_URL;
+const API = import.meta.env.VITE_API;
 
 i18n
   .use(HttpBackend)
@@ -22,7 +23,7 @@ i18n
     },
 
     backend: {
-      loadPath: `${BASE_URL}/api/content/translation?lang={{lng}}`,
+      loadPath: `${BASE_URL}/${API}/content/translation?lang={{lng}}`,
     },
 
     interpolation: {
