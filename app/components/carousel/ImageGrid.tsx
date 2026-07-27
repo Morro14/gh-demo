@@ -65,11 +65,18 @@ export default function ImageGrid({
   const heightHalfRow = `2xl:h-45 md:h-26.5 h-13`;
   const gap = "2xl:gap-3 md:gap-2 gap-1 ";
   // flip layout
+  console.log("grid len", gridLen);
   const midGidsToReverse = Array.from(
     { length: gridLen - 3 },
     (_, i) => 3 + i,
   ).filter((_, i) => i % 2 === 0);
-  const reverseLayoutIndecies = [1, ...midGidsToReverse, gridLen - 1];
+  console.log("midGidsToReverse", midGidsToReverse);
+  const lastNotFirstGridIndex = gridLen > 1 ? gridLen - 1 : null;
+  const reverseLayoutIndecies = [1, ...midGidsToReverse];
+  if (lastNotFirstGridIndex) {
+    reverseLayoutIndecies.push(lastNotFirstGridIndex);
+  }
+
   return (
     <div
       className={`index-container-1 ${gap} grid grid-cols-4 ${gridContext.showMoreImages ? heightGridFull : heightFirstRow} transition-all duration-300 overflow-hidden`}
