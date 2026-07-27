@@ -76,11 +76,14 @@ export async function clientLoader({ request }: Route.ClientLoaderArgs) {
     const defaultParamsObj = getDefaultSearchParams();
     const defaultParams = new URLSearchParams(defaultParamsObj);
     const currentPath = new URL(request.url).pathname;
-    console.log("currentPath", currentPath);
     return redirect(`${currentPath}?${defaultParams}`);
   }
   const axiosInstance = getAxiosInstance();
   const response = await axiosInstance.get(`booking/request${url.search}`);
+  sessionStorage.setItem(
+    "booking_request_token",
+    response.data?.booking_request_token,
+  );
   return response as AxiosResponse;
 }
 
@@ -88,18 +91,33 @@ export async function clientAction({
   request,
   params,
 }: Route.ClientActionArgs) {
-  await new Promise((resolve) => setTimeout(resolve, 500));
   const formData = await request.formData();
+  const formPayload = Object.fromEntries(formData);
   const axiosInstance = getAxiosInstance();
+  const token = sessionStorage.getItem("booking_request_token");
   if (formData.get("_intent") === "price_preview") {
-    await new Promise((resolve) => setTimeout(resolve, 500));
+    // await new Promise((resolve) => setTimeout(resolve, 500));
     const response = await axiosInstance.post(
       `booking/reservation-price`,
-      formData,
+      {
+        ...formPayload,
+      },
+
+      {
+        headers: { "x-booking-token": `${token}` },
+      },
     );
     return response.data;
   } else {
-    await axiosInstance.post("booking/request-summary", formData);
+    await axiosInstance.post(
+      "booking/request-summary",
+      {
+        ...formPayload,
+      },
+      {
+        headers: { "x-booking-token": `Bearer ${token}` },
+      },
+    );
     return redirect(`/${params.lang}/booking/confirm`);
   }
 }

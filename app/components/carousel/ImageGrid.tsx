@@ -65,12 +65,10 @@ export default function ImageGrid({
   const heightHalfRow = `2xl:h-45 md:h-26.5 h-13`;
   const gap = "2xl:gap-3 md:gap-2 gap-1 ";
   // flip layout
-  console.log("grid len", gridLen);
   const midGidsToReverse = Array.from(
     { length: gridLen - 3 },
     (_, i) => 3 + i,
   ).filter((_, i) => i % 2 === 0);
-  console.log("midGidsToReverse", midGidsToReverse);
   const lastNotFirstGridIndex = gridLen > 1 ? gridLen - 1 : null;
   const reverseLayoutIndecies = [1, ...midGidsToReverse];
   if (lastNotFirstGridIndex) {

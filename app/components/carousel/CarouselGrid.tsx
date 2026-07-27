@@ -29,7 +29,6 @@ export default function CarouselGrid({ name }: { name: string }) {
       : !gridData
         ? Array(MIN_GRIDS).fill(0)
         : gridData;
-  console.log("gridsConcat", gridsConcat);
   useEffect(() => {
     const isMobile = window.matchMedia("(max-width:768px)");
     if (isMobile.matches) {

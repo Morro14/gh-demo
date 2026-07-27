@@ -7,7 +7,7 @@
   "adultsWithCount_one": "adultsWithCount",
   "adultsWithCount_other": "adultsWithCount",
   "Available rooms": "Available rooms",
-  "availableDate": "availableDate",
+  "availableDate": "Unavailable date. Next available date is {{val, datetime}}",
   "back to booking": "back to booking",
   "back to the main page": "back to the main page",
   "Beds": "Beds",
