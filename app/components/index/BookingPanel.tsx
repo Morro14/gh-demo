@@ -1,5 +1,4 @@
 import { Form, useNavigation } from "react-router";
-import SelectGuests from "~/components/formComponents/SelectGuests";
 import { useIndexBookingContextProvider } from "~/components/booking/IndexBookingContextProvider";
 import { useTranslation } from "react-i18next";
 import ErrorPanel from "~/components/formComponents/ErrorPanel";
@@ -9,12 +8,12 @@ import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { ThemeProvider } from "@mui/material";
 import { desktopDatePickerTheme } from "../formComponents/mui.tsx";
 import { desktopDatePickerSx } from "../formComponents/mui.tsx";
-import { IndexFormLayout } from "../formComponents/SelectGuestsLayouts.tsx";
 import BookingPanelButton from "./BookingPanelButton.tsx";
 import { genGuestOptions } from "~/components/formComponents/utils.tsx";
 
 export default function BookingPanel() {
   const today = dayjs();
+  const minDate = today.hour() < 4 ? today.subtract(1, "day") : today;
   const [date, setDate] = useState(today);
   const { t } = useTranslation();
   const context = useIndexBookingContextProvider();
@@ -28,7 +27,7 @@ export default function BookingPanel() {
           className={`flex z-40 justify-center h-12 items-center overflow-visible gap-10`}
         >
           <div className="flex items-center text-nowrap text-ellipsis">
-            {t("create_reservation")}
+            {t("Create reservation")}
           </div>
           <div className="flex gap-7">
             <div className="">
@@ -38,7 +37,7 @@ export default function BookingPanel() {
                   defaultValue={today}
                   value={date}
                   onChange={(date) => setDate(date)}
-                  disablePast
+                  minDate={minDate}
                   slotProps={{
                     textField: {
                       "aria-label": "date",

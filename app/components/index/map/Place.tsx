@@ -161,7 +161,7 @@ export default function MapPlaceComponent({
         ""
       )}
       <div
-        className="text-center flex flex-col items-center"
+        className="text-center flex flex-col items-center bg-white px-2 py-1 drop-shadow outline -outline-offset-1"
         onPointerDown={(e) => {
           pointerPosOnMouseDown = { x: e.clientX, y: e.clientY };
         }}
@@ -176,7 +176,7 @@ export default function MapPlaceComponent({
         }}
       >
         <div
-          className={`text-base/5 hover:underline hover:cursor-pointer max-w-[154px] font-[600] map-text-shadow`}
+          className={`text-lg/5 hover:underline hover:cursor-pointer max-w-[154px] font-[600] map-text-shadow`}
         >
           {place.name}
         </div>

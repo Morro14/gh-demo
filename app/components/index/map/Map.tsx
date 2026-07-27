@@ -3,7 +3,7 @@ import { useFetchV3 } from "~/utils/fetchHook";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useMapContextProvider } from "./MapContextProvider";
 import MapNav from "./MapNav";
-import paths from "src/assets/map-paths.svg";
+import paths from "src/assets/map-demo-bg.png";
 import placeLabelsData from "src/data/map-labels-data.json";
 import { MAP_OPTIONS, writeMapItemPosData } from "./utils";
 import { getMapHandlers } from "./handlers";
@@ -159,7 +159,7 @@ export default function Map({ options }: { options: typeof MAP_OPTIONS }) {
         >
           <div
             id="map-content"
-            className="relative size-full touch-none border border-dashed border-gray-warm-inactive"
+            className="relative size-full touch-none"
             aria-disabled
             draggable="false"
             ref={mapContent}
@@ -173,7 +173,7 @@ export default function Map({ options }: { options: typeof MAP_OPTIONS }) {
               draggable="false"
               aria-disabled
               id="map-img"
-              className="object-contain select-none h-full touch-none"
+              className="object-contain select-none h-full touch-none opacity-50"
               src={paths}
               ref={mapImage}
             />

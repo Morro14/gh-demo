@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router";
+import Tooltip from "../Tooltip";
 
 const RATING = 9.8;
 const BOOKING_URL = "https://www.booking.com/hotel/am/shushan-guest-house.html";
@@ -46,7 +47,12 @@ export default function NavHorizontal() {
       <Link to={BOOKING_URL} className="flex justify-start gap-3">
         <div className="flex items-center gap-1 ">
           <div className="hover:cursor-pointer text-nowrap ">
-            {t("Booking.com reviews")}
+            <Tooltip
+              params={{ id: "map-loc-tooltip" }}
+              pos={{ x: 10, y: 40 }}
+              content={t("Link is disabled for the demo")}
+            ></Tooltip>
+            {"Booking.com " + t(" reviews", { keySeparator: ">" })}
           </div>
           <div className="flex items-center gap-1">
             <div className="">{star}</div>

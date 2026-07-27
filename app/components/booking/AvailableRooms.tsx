@@ -3,7 +3,7 @@ import AvailableRoom from "./AvailableRoom";
 import type { Room } from "~/types/booking";
 import { Carousel } from "../carousel/Carousel";
 import { useNavContextProvider } from "../nav/NavContextProvider";
-import { Form, useFetcher, useLocation, useSearchParams } from "react-router";
+import { useFetcher, useSearchParams } from "react-router";
 import { useEffect, useRef, type ChangeEvent } from "react";
 import { useTranslation } from "react-i18next";
 import { useBookingRoomSelectContextProvider } from "./BookingRoomSelectContext";
@@ -38,7 +38,7 @@ export default function AvailableRooms({ rooms }) {
   return (
     <div
       id="available-rooms"
-      className={`flex flex-col items-center mt-[82px] transition-all`}
+      className={`flex flex-col items-center 2xl:mt-[82px] mt-[100px] transition-all`}
     >
       {rooms.length === 0 ? (
         <div className="mt-5">
@@ -83,7 +83,7 @@ export default function AvailableRooms({ rooms }) {
               return (
                 <AvailableRoom
                   formRef={formRef}
-                  key={room.name}
+                  key={`room-${index}`}
                   room={room}
                   index={index}
                 ></AvailableRoom>

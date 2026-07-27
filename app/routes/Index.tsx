@@ -95,9 +95,7 @@ export default function Index() {
           ) : (
             ""
           )}
-          <div className="w-8 h-8 mb-10 md:mt-10 mt-8">
-            <img src={eternity} />
-          </div>
+          <div className="text-4xl mb-2 mt-2">ꕥ</div>
         </div>
       </div>
 
@@ -108,9 +106,9 @@ export default function Index() {
         className="flex flex-col gap-6 mt-[18px] relative scroll-mt-15"
       >
         <div>
-          <h2 className="text-center">{t("Vayots Dzor")}</h2>
+          <h2 className="text-center">{t("Victoria Bay")}</h2>
           <h3 className="text-center -mt-6">
-            {t("Points of interest in the province")}
+            {t("Points of interest in the area")}
           </h3>
         </div>
         <NavContextProvider>

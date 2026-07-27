@@ -24,7 +24,7 @@ export default function MapNav() {
       icon: mountainsIcon,
       type: "line",
     },
-    house: { name: t("Shushan guest-house"), icon: houseIcon, type: "line" },
+    house: { name: t("House"), icon: houseIcon, type: "line" },
     pin: { name: t("Point of interest"), icon: pinSVG, type: "icon" },
   };
   return (

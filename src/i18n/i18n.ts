@@ -3,9 +3,6 @@ import { initReactI18next } from "react-i18next";
 import HttpBackend from "i18next-http-backend";
 import LanguageDetector from "i18next-browser-languagedetector";
 
-const BASE_URL = import.meta.env.VITE_SERVER_URL;
-const API = import.meta.env.VITE_API;
-
 i18n
   .use(HttpBackend)
   .use(LanguageDetector)
@@ -20,10 +17,6 @@ i18n
       order: ["path", "navigator"],
       lookupFromPathIndex: 0,
       caches: ["localStorage", "cookie"],
-    },
-
-    backend: {
-      loadPath: `${BASE_URL}/${API}/content/translation?lang={{lng}}`,
     },
 
     interpolation: {

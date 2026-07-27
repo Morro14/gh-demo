@@ -7,7 +7,7 @@ import type {
 } from "~/types/map";
 
 export const MAP_OPTIONS = {
-  mapContentSize: { x: 2043, y: 1420 },
+  mapContentSize: { x: 1826, y: 1420 },
   mapPadding: 800,
   zoomMin: 0.4,
   zoomMax: 2,
