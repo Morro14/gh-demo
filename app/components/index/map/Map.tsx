@@ -3,7 +3,7 @@ import { useFetchV3 } from "~/utils/fetchHook";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useMapContextProvider } from "./MapContextProvider";
 import MapNav from "./MapNav";
-import paths from "src/assets/map-demo-bg.png";
+import paths from "src/assets/demo-map-bg.png";
 import placeLabelsData from "src/data/map-labels-data.json";
 import { MAP_OPTIONS, writeMapItemPosData } from "./utils";
 import { getMapHandlers } from "./handlers";

@@ -12,6 +12,8 @@ import placeDotsPosData from "src/data/place-dots-data.json";
 import { isClickNotDrag } from "./utils";
 import { MAP_OPTIONS } from "./utils";
 import MapItemPosControl from "./MapItemPosControl";
+import pinBig from "src/assets/pin-big.svg";
+const MEDIA_BASE_URL = import.meta.env.VITE_MEDIA_BASE_URL;
 
 const defaultOptions: MapLabelOptions = {
   offsets: { x: 0, y: 0 },
@@ -145,23 +147,58 @@ export default function MapPlaceComponent({
             top: dotPos.y,
           }}
         >
+          <div
+            className={`absolute z-50 mask-radial-at-center mask-radial-from-100% w-[36px] h-[36px] rounded-[20px] left-[2px] top-[2px]`}
+            style={{
+              backgroundImage: `url(${MEDIA_BASE_URL + place.images[0].variants.small})`,
+              backgroundSize: "contain",
+            }}
+          />
           <svg
-            width="12"
-            height="19"
-            viewBox="0 0 12 19"
+            width="40"
+            className="drop-shadow"
+            height="55"
+            viewBox="0 0 40 55"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
-            className="group-hover:fill-primary! group-hover:stroke-primary"
-            style={{ ...getImportanceStyles("dot") }}
           >
-            <path d="M5.74707 0C8.92112 0 11.4941 2.57302 11.4941 5.74707C11.4941 8.55639 9.18953 12.4078 6.74707 17.8145C6.3821 18.6223 5.20392 18.6224 4.83691 17.8154C2.3777 12.4082 8.72326e-05 8.5566 0 5.74707C0 2.57304 2.57305 2.98799e-05 5.74707 0ZM5.75 3.12598C4.35345 3.12598 3.22075 4.25776 3.2207 5.6543C3.2207 7.05088 4.35342 8.18359 5.75 8.18359C7.14647 8.18347 8.27832 7.0508 8.27832 5.6543C8.27827 4.25783 7.14644 3.1261 5.75 3.12598Z" />
+            <path
+              d="M40 19.7753C40 30.6969 29.375 48.8202 20 55C9.375 48.8202 0 30.6969 0 19.7753C0 8.85369 8.9543 0 20 0C31.0457 0 40 8.85369 40 19.7753Z"
+              fill="white"
+            />
           </svg>
         </div>
       ) : (
         ""
       )}
+      {/* {hasDot ? ( */}
+      {/*   <div */}
+      {/*     ref={dotRef} */}
+      {/*     id={`${place.slug}-dot`} */}
+      {/*     data-slug={place.slug} */}
+      {/*     className="absolute" */}
+      {/*     style={{ */}
+      {/*       left: dotPos.x, */}
+      {/*       top: dotPos.y, */}
+      {/*     }} */}
+      {/*   > */}
+      {/*     <svg */}
+      {/*       width="12" */}
+      {/*       height="19" */}
+      {/*       viewBox="0 0 12 19" */}
+      {/*       fill="none" */}
+      {/*       xmlns="http://www.w3.org/2000/svg" */}
+      {/*       className="group-hover:fill-primary! group-hover:stroke-primary" */}
+      {/*       style={{ ...getImportanceStyles("dot") }} */}
+      {/*     > */}
+      {/*       <path d="M5.74707 0C8.92112 0 11.4941 2.57302 11.4941 5.74707C11.4941 8.55639 9.18953 12.4078 6.74707 17.8145C6.3821 18.6223 5.20392 18.6224 4.83691 17.8154C2.3777 12.4082 8.72326e-05 8.5566 0 5.74707C0 2.57304 2.57305 2.98799e-05 5.74707 0ZM5.75 3.12598C4.35345 3.12598 3.22075 4.25776 3.2207 5.6543C3.2207 7.05088 4.35342 8.18359 5.75 8.18359C7.14647 8.18347 8.27832 7.0508 8.27832 5.6543C8.27827 4.25783 7.14644 3.1261 5.75 3.12598Z" /> */}
+      {/*     </svg> */}
+      {/*   </div> */}
+      {/* ) : ( */}
+      {/*   "" */}
+      {/* )} */}
       <div
-        className="text-center flex flex-col items-center bg-white px-2 py-1 drop-shadow outline -outline-offset-1"
+        className="text-left"
         onPointerDown={(e) => {
           pointerPosOnMouseDown = { x: e.clientX, y: e.clientY };
         }}
@@ -176,13 +213,13 @@ export default function MapPlaceComponent({
         }}
       >
         <div
-          className={`text-lg/5 hover:underline hover:cursor-pointer max-w-[154px] font-[600] map-text-shadow`}
+          className={`text-lg/5 hover:underline hover:cursor-pointer max-w-[154px] font-[600] map-text-shadow bg-white px-1 py-1 drop-shadow rounded-lg`}
         >
           {place.name}
         </div>
-        <div className="text-sm">
+        <span className="text-sm bg-white px-1 mt-1 drop-shadow rounded-lg">
           {t("km", { context: "distance", count: place.distance })}
-        </div>
+        </span>
       </div>
     </div>
   );

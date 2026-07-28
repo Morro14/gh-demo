@@ -42,7 +42,6 @@ export function getMapHandlers(elements: MapElements, context: any) {
   // anchor ratio relative to the map surface
   let anchorRatios = getAnchorRatio(mapContainer, mapSurface);
   let zoomCurrent = 1;
-  const mapConsole = document.getElementById("map-console");
   function handlePointerDown(e: PointerEvent) {
     // map pointer down
     e.preventDefault();

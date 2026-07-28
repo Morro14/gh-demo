@@ -8,7 +8,7 @@ import type {
 
 export const MAP_OPTIONS = {
   mapContentSize: { x: 1826, y: 1420 },
-  mapPadding: 800,
+  mapPadding: 0,
   zoomMin: 0.4,
   zoomMax: 2,
   zoomFactor: 0.2,
@@ -39,14 +39,11 @@ export function boundMapPos(
   newPos: Coords,
   zoomNew: number,
 ) {
-  const mapContentSize = {
-    x: mapContent.clientWidth * zoomNew,
-    y: mapContent.clientHeight * zoomNew,
-  };
   const mapSurfaceSize = {
-    x: mapSurface.clientWidth * zoomNew,
-    y: mapSurface.clientHeight * zoomNew,
+    x: MAP_SIZE_INIT.x * zoomNew,
+    y: MAP_SIZE_INIT.y * zoomNew,
   };
+  console.log("zoomNew", zoomNew);
   // console.log(
   //   "boound",
   //   mapSurfaceSize,
@@ -55,23 +52,16 @@ export function boundMapPos(
   //   newPos,
   //   zoomNew,
   // );
-  let minX = Math.floor(
-    -mapSurfaceSize.x / 2 + (mapContainerSize.x * 3) / 4 - mapContentSize.x / 2,
-  );
-  let maxX = Math.floor(
-    -mapSurfaceSize.x / 2 + mapContainerSize.x / 4 + mapContentSize.x / 2,
-  );
-  let minY = Math.floor(
-    -mapSurfaceSize.y / 2 + (mapContainerSize.y * 3) / 4 - mapContentSize.y / 2,
-  );
-  let maxY = Math.floor(
-    -mapSurfaceSize.y / 2 + mapContainerSize.y / 4 + mapContentSize.y / 2,
-  );
+  let minX = Math.floor(-mapSurfaceSize.x + mapContainerSize.x);
+  let maxX = 0;
+  let minY = Math.floor(-mapSurfaceSize.y + mapContainerSize.y);
+  let maxY = 0;
   let offsetX = 0;
   let offsetY = 0;
+  console.log();
   offsetY = Math.max(Math.min(maxY, newPos.y), minY);
   offsetX = Math.max(Math.min(maxX, newPos.x), minX);
-
+  console.log("minX", minX, "maxX", maxX);
   return { x: offsetX, y: offsetY };
 }
 export function getMapPosBound({

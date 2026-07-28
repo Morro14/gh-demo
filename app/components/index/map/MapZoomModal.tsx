@@ -21,7 +21,14 @@ export default function MapZoomModal() {
           className="bg-bg flex justify-center items-center rounded-lg drop-shadow md:w-8 w-10 md:h-8 h-10"
           onClick={() => {
             const zoomNew = currentZoom - zoomFactor;
-            if (zoomNew < MAP_OPTIONS.zoomMin) {
+            const zoomNorm = Math.max(
+              Math.max(
+                mapContainer.clientWidth / mapSurface.clientWidth,
+                mapContainer.clientHeight / mapSurface.clientHeight,
+              ),
+              zoomNew,
+            );
+            if (zoomNorm < MAP_OPTIONS.zoomMin) {
               return;
             }
             const anchorDefault = {
@@ -45,7 +52,7 @@ export default function MapZoomModal() {
               anchor: anchorDefault,
               zoomCurrent: currentZoom,
             });
-            context.setZoom(zoomNew);
+            context.setZoom(zoomNorm);
           }}
         >
           {minusSVG}
