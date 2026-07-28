@@ -11,6 +11,7 @@ export default function BookingPannelMobile() {
   const { t } = useTranslation();
   const formRef = useRef(null);
   const today = dayjs();
+  const minDate = today.hour() < 4 ? today.subtract(1, "day") : today;
   const [date, setDate] = useState(today);
   const navigation = useNavigation();
   let modalShow = false;
@@ -47,10 +48,11 @@ export default function BookingPannelMobile() {
             {/* ></DatePicker> */}
             <input
               name="date"
-              className=""
+              className="border border-gray-line rounded px-2 py-1"
               type="date"
               id="checkin-date-input"
-              value={date.format().slice(0, 10)}
+              defaultValue={date.format().slice(0, 10)}
+              min={minDate.format().slice(0, 10)}
             />
           </div>
           <SelectGuestsMobile />
@@ -58,11 +60,11 @@ export default function BookingPannelMobile() {
             <label htmlFor="input-nights" className="">
               {t("Nights", { context: "genetive" }) + ":"}
             </label>
-            <div className="flex w-40 justify-center items-center hover:bg-apricot-light">
+            <div className="flex w-40 justify-center items-center hover:bg-apricot-light ">
               <input
                 defaultValue={1}
                 type="number"
-                className="w-9 text-center border border-line-light rounded"
+                className="w-9 text-center border border-gray-line rounded px-2 py-1"
                 name="nights"
               />
             </div>
