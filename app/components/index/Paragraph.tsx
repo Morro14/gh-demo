@@ -19,8 +19,8 @@ export default function Paragraph({
 }) {
   const TitleTag = titleSize;
   const { ref, inView, entry } = useInView({
-    threshold: 0.1,
-    // triggerOnce: true,
+    threshold: 0.3,
+    triggerOnce: true,
   });
   return !content ? (
     <PlaceholderParagraph></PlaceholderParagraph>
@@ -32,7 +32,15 @@ export default function Paragraph({
         ref={ref}
         className={`max-w-[698px] md:max-w-[880px] relative transition-all duration-800 ease-out ${inView ? "opacity-100" : "opacity-0"}`}
       >
-        {content.title.length > 0 ? <TitleTag>{content.title}</TitleTag> : ""}
+        {content.title.length > 0 ? (
+          <TitleTag
+            className={`${inView ? "tracking-normal" : "tracking-widest"} transition-all duration-800`}
+          >
+            {content.title}
+          </TitleTag>
+        ) : (
+          ""
+        )}
         {subtitle ? <h3>{subtitle}</h3> : ""}
         <p className="font-sans font-[350] md:text-base text-pretty w-full whitespace-pre-wrap">
           {content.body}

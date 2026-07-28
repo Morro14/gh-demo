@@ -56,9 +56,7 @@ export default function Index() {
             <NavHorizontal></NavHorizontal>
             {/* {line} */}
           </div>
-          <div className="w-8 h-8 md:mt-4 md:mb-2">
-            <img src={eternity} />
-          </div>
+          <div className="text-4xl mt-2">ꕥ</div>
           <div id="about" className="w-full">
             <Paragraph
               content={pageContent.find((item) => item.tag === "about")}

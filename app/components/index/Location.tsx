@@ -8,8 +8,8 @@ export default function LocationMain() {
     <div className="flex md:flex-row flex-col items-center md:justify-center col-span-2 font-sans md:gap-5 gap-2 text">
       <span className="flex gap-2 underline hover:cursor-pointer relative group">
         <Tooltip
-          params={{ id: "map-loc-tooltip" }}
-          pos={{ x: 10, y: 40 }}
+          attrs={{ id: "map-loc-tooltip" }}
+          styleProps={{ left: 10, top: -60 }}
           content={t("Link is disabled for the demo")}
         ></Tooltip>
         <img className="w-3" src={googleMapsIcon} />
@@ -20,8 +20,8 @@ export default function LocationMain() {
         aria-disabled
       >
         <Tooltip
-          params={{ id: "map-loc-tooltip" }}
-          pos={{ x: 10, y: 40 }}
+          attrs={{ id: "map-loc-tooltip" }}
+          styleProps={{ left: 10, top: -60 }}
           content={t("Link is disabled for the demo")}
         ></Tooltip>
         {t("Open a route guide")}
@@ -31,8 +31,8 @@ export default function LocationMain() {
         aria-disabled
       >
         <Tooltip
-          params={{ id: "map-loc-tooltip" }}
-          pos={{ x: 10, y: 40 }}
+          attrs={{ id: "map-loc-tooltip" }}
+          styleProps={{ left: 10, top: -60 }}
           content={t("Link is disabled for the demo")}
         ></Tooltip>
         {t("Transfer")}

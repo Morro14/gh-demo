@@ -8,6 +8,8 @@ import { ImageLoading } from "../ImageLoading";
 import PlaceholderFullView from "../placeholders/PlaceholderFullView";
 import PlaceholderGrayBox from "../placeholders/PlaceholderGrayBox";
 
+import { useInView } from "react-intersection-observer";
+
 const MEDIA_URL_BASE = import.meta.env.VITE_MEDIA_BASE_URL;
 
 export default function CarouselWide({ tag }: { tag: string }) {
@@ -23,14 +25,22 @@ export default function CarouselWide({ tag }: { tag: string }) {
     loop: true,
   });
   const imageRes: ImageRes = "main";
+  const { ref, inView, entry } = useInView({
+    // threshold: 0.8,
+    rootMargin: "100% 0% -50% 0%",
+    // triggerOnce: true,
+  });
   return (
-    <div>
-      <div className="embla max-w-screen" ref={emblaRef}>
-        <div className="embla__container">
+    <div
+      className={`transition-[height] duration-800 ${inView ? "2xl:h-[460px] md:h-[280px] h-[160px]" : "2xl:h-[388px] md:h-[220px] h-[110px]"}`}
+      ref={ref}
+    >
+      <div className="embla max-w-screen h-full" ref={emblaRef}>
+        <div className={`embla__container h-full`} ref={ref}>
           {imagesDefault.map((img, i) => (
             <div
               key={`img-wide-${i}`}
-              className="embla__slide shrink-0 mr-3 carousel-wide-image 2xl:h-[388px] md:h-[220px] h-[110px] w-full overflow-hidden"
+              className={`embla__slide shrink-0 mr-3 carousel-wide-image  w-full overflow-hidden`}
             >
               {" "}
               {images ? (

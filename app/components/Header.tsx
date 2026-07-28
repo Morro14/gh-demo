@@ -11,11 +11,11 @@ export default function Header() {
   return (
     <div>
       <div className="font-sans text-white font-medium text-center bg-primary">
-        {t("This is a test version of the project")}
+        {t("This is a demo version")}
       </div>
       <header className={`flex items-center w-full text-text-main h-13`}>
         <div
-          className={`flex justify-between items-center w-full md:px-7 px-2 transition-all overflow-hidden `}
+          className={`flex justify-between items-center w-full md:px-7 px-2 `}
         >
           <Link to="/" className="lg:w-1/3 w-1/2 text-lg font-sc font-medium">
             {t("Site name")}

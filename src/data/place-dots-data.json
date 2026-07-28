@@ -2,8 +2,8 @@
     {
         "name": "waterfront-demo",
         "offsets": {
-            "x": 46,
-            "y": 54
+            "x": -47,
+            "y": -2
         },
         "type": "placeDot"
     }
