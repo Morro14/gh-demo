@@ -3,7 +3,7 @@ import { Link } from "react-router";
 import Tooltip from "../Tooltip";
 
 const RATING = 9.8;
-const BOOKING_URL = "https://www.booking.com/hotel/am/shushan-guest-house.html";
+const BOOKING_URL = "";
 
 export default function NavHorizontal() {
   const { t, i18n } = useTranslation();
@@ -44,12 +44,12 @@ export default function NavHorizontal() {
         <span className="px-3 pt-1 ">{t("Points of interest")}</span>
       </button>
       {/* <div className="max-2xl:hidden h-5 w-0.5 bg-gray-warm-light"></div> */}
-      <Link to={BOOKING_URL} className="flex justify-start gap-3">
+      <div className="flex justify-start gap-3">
         <div className="flex items-center gap-1 ">
-          <div className="hover:cursor-pointer text-nowrap ">
+          <div className="hover:cursor-pointer text-nowrap relative group">
             <Tooltip
-              params={{ id: "map-loc-tooltip" }}
-              pos={{ x: 10, y: 40 }}
+              attrs={{ id: "map-loc-tooltip" }}
+              styleProps={{ left: 10, top: -40 }}
               content={t("Link is disabled for the demo")}
             ></Tooltip>
             {"Booking.com " + t(" reviews", { keySeparator: ">" })}
@@ -59,7 +59,7 @@ export default function NavHorizontal() {
             <div className="font-serif">{RATING}</div>
           </div>
         </div>
-      </Link>
+      </div>
     </div>
   );
 }

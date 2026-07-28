@@ -11,7 +11,7 @@ export default function Tooltip({
 }) {
   return (
     <div
-      className="absolute z-1000 bg-[#73706f] text-sm p-2 text-center font-medium hidden group-hover:flex text-white min-w-40 rounded origin-bottom-left starting:opacity-0 opacity-100 duration-150 transition-opacity"
+      className="absolute z-1000 bg-[#73706f] text-sm p-2 text-center font-medium hidden group-hover:flex text-white min-w-40 rounded origin-bottom-left starting:opacity-0 opacity-100 duration-150 transition-opacity font-sans"
       style={{ ...styleProps }}
     >
       {content}
