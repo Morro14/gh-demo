@@ -92,32 +92,31 @@ export async function clientAction({
   params,
 }: Route.ClientActionArgs) {
   const formData = await request.formData();
-  const formPayload = Object.fromEntries(formData);
   const axiosInstance = getAxiosInstance();
   const token = sessionStorage.getItem("booking_request_token");
   if (formData.get("_intent") === "price_preview") {
     // await new Promise((resolve) => setTimeout(resolve, 500));
     const response = await axiosInstance.post(
       `booking/reservation-price`,
-      {
-        ...formPayload,
-      },
-
+      formData,
       {
         headers: { "x-booking-token": `${token}` },
       },
     );
     return response.data;
   } else {
-    await axiosInstance.post(
+    const response = await axiosInstance.post(
       "booking/request-summary",
+      formData,
       {
-        ...formPayload,
-      },
-      {
-        headers: { "x-booking-token": `Bearer ${token}` },
+        headers: { "x-booking-token": `${token}` },
       },
     );
+    sessionStorage.setItem(
+      "booking_request_token",
+      response.data?.booking_request_token,
+    );
+
     return redirect(`/${params.lang}/booking/confirm`);
   }
 }

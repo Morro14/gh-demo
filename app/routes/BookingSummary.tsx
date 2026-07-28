@@ -48,8 +48,12 @@ export async function clientAction({ request, params }) {
   const formData = await request.formData();
   const token = sessionStorage.getItem("booking_request_token");
   const response = (await axiosInstance.post("booking/validate", formData, {
-    headers: { "x-booking-token": `Bearer ${token}` },
+    headers: { "x-booking-token": `${token}` },
   })) as AxiosResponse;
+  sessionStorage.setItem(
+    "booking_request_token",
+    response.data?.booking_request_token,
+  );
   return redirect(
     `/${params.lang}/booking/response?validated=${response.data.request_validated}&email=${response.data.user_email}`,
   );
@@ -76,7 +80,7 @@ export async function clientLoader() {
   const axiosInstance = getAxiosInstance();
   const token = sessionStorage.getItem("booking_request_token");
   const response = await axiosInstance.get(`booking/request-summary`, {
-    headers: { "x-booking-token": `Bearer ${token}` },
+    headers: { "x-booking-token": `${token}` },
   });
   return response;
 }

@@ -25,7 +25,10 @@ export function ErrorBoundary() {
 }
 export async function clientLoader() {
   const axiosInstance = getAxiosInstance();
-  const response = await axiosInstance.get("booking/validate");
+  const token = sessionStorage.getItem("booking_request_token");
+  const response = await axiosInstance.get("booking/validate", {
+    headers: { "x-booking-token": token },
+  });
   return response;
 }
 export default function BookingConfirmResponse({ loaderData }) {
