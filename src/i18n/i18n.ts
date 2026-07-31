@@ -9,7 +9,7 @@ i18n
   .use(initReactI18next)
   .init({
     fallbackLng: "en",
-    supportedLngs: ["en", "ru"],
+    supportedLngs: ["en"],
     // debug: import.meta.env.VITE_DEBUG === "true",
     debug: false,
 

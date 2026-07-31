@@ -1,2 +1,2 @@
-export const LANGUAGES = ["en", "ru"];
+export const LANGUAGES = ["en"];
 export const DEFAULT_LANGUAGE = "en";
