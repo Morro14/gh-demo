@@ -43,7 +43,6 @@ export function boundMapPos(
     x: MAP_SIZE_INIT.x * zoomNew,
     y: MAP_SIZE_INIT.y * zoomNew,
   };
-  console.log("zoomNew", zoomNew);
   // console.log(
   //   "boound",
   //   mapSurfaceSize,
@@ -58,10 +57,8 @@ export function boundMapPos(
   let maxY = 0;
   let offsetX = 0;
   let offsetY = 0;
-  console.log();
   offsetY = Math.max(Math.min(maxY, newPos.y), minY);
   offsetX = Math.max(Math.min(maxX, newPos.x), minX);
-  console.log("minX", minX, "maxX", maxX);
   return { x: offsetX, y: offsetY };
 }
 export function getMapPosBound({
