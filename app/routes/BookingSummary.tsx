@@ -5,6 +5,7 @@ import {
   Link,
   useFetcher,
   useNavigation,
+  Form,
 } from "react-router";
 import {
   formatPrice,
@@ -21,6 +22,7 @@ import ErrorFallback from "~/components/ErrorFallback";
 import { isAxiosError, type AxiosResponse } from "axios";
 import { logError } from "~/utils/logging";
 import { langCodes } from "~/utils/lang";
+import type { Route } from "./+types/BookingSummary";
 
 export function ErrorBoundary() {
   const error = useRouteError();
@@ -41,11 +43,35 @@ export function ErrorBoundary() {
   } else return <ErrorFallback />;
 }
 
+interface Validation {
+  valid: boolean;
+  name?: string;
+  message?: string;
+}
+const formFieldsValidate = (formData: FormData) => {
+  const validations: Validation[] = [];
+  for (const pair of formData.entries()) {
+    if (pair[1] === "") {
+      validations.push({
+        valid: false,
+        name: pair[0],
+        message: "The field must be filled",
+      });
+    }
+  }
+  return validations;
+};
 export async function clientAction({ request, params }) {
   // await new Promise((resolve) => setTimeout(resolve, 500));
   // return;
   const axiosInstance = getAxiosInstance();
   const formData = await request.formData();
+  const validations = formFieldsValidate(formData);
+  if (validations.length > 0) {
+    console.log("validations", validations);
+
+    return validations;
+  }
   const token = sessionStorage.getItem("booking_request_token");
   const response = (await axiosInstance.post("booking/validate", formData, {
     headers: { "x-booking-token": `${token}` },
@@ -84,8 +110,15 @@ export async function clientLoader() {
   });
   return response;
 }
-export default function BookingSummary({ loaderData }) {
+export default function BookingSummary({
+  actionData,
+  loaderData,
+}: Route.ComponentProps) {
   const loaderDataClean: LoaderData = loaderData.data;
+  const errorsObj = actionData
+    ? (actionData.reduce((prev, cur) => (prev[cur.name] = cur), {}) as any)
+    : {};
+  console.log("errorsObj", errorsObj);
   const { t, i18n } = useTranslation();
   const {
     request_info: requestInfo,
@@ -105,7 +138,6 @@ export default function BookingSummary({ loaderData }) {
     adults: requestInfo.adults,
     children: requestInfo.children,
   });
-  const fetcher = useFetcher();
   const nav = useNavigation();
   return (
     <div className="flex flex-col gap-8 items-center min-h-screen min-w-screen font-sans">
@@ -169,7 +201,7 @@ export default function BookingSummary({ loaderData }) {
         <p className="text-gray-warm-mid text-sm font-sans my-6">
           {t("booking summary paragraph")}
         </p>
-        <fetcher.Form method="post" className="flex flex-col gap-5 w-[210px]">
+        <Form method="post" className="flex flex-col gap-5 w-[210px]">
           <div className="flex flex-col gap-1">
             <label htmlFor="email-input" className="font-sans">
               {t("Email")}
@@ -181,8 +213,10 @@ export default function BookingSummary({ loaderData }) {
               id="email-input"
               className="h-7 w-[210px] border-1 focus:border-bg border-gray-warm-inactive p-1 rounded font-sans"
               placeholder="user@email.com"
+              type="email"
               name="email"
             ></input>
+            <div>{errorsObj.email ? t(errorsObj.email.message) : ""}</div>
           </div>
           <div className="flex flex-col gap-1">
             <label htmlFor="guest-name-input" className="font-sans">
@@ -218,9 +252,9 @@ export default function BookingSummary({ loaderData }) {
             type="submit"
             className="min-w-[120px] h-10 text-lg font-medium bg-primary capitalize rounded font-sans text-white mt-6 cursor-pointer hover:bg-primary-light"
           >
-            {fetcher.state === "idle" ? t("confirm") : t("submitting...")}
+            {nav.state === "idle" ? t("confirm") : t("submitting...")}
           </button>
-        </fetcher.Form>
+        </Form>
       </section>
     </div>
   );
