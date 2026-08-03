@@ -10,29 +10,29 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <link
           rel="icon"
           type="image/x-icon"
-          href="/static/frontend/favicon.ico"
+          href="/public/favicon/favicon.ico"
         />
 
         <link
           rel="icon"
           type="image/png"
           sizes="16x16"
-          href="/static/frontend/favicon-16x16.png"
+          href="/public/favicon/favicon-16x16.png"
         />
         <link
           rel="icon"
           type="image/png"
           sizes="32x32"
-          href="/static/frontend/favicon-32x32.png"
+          href="/public/favicon/favicon-32x32.png"
         />
 
         <link
           rel="apple-touch-icon"
           sizes="180x180"
-          href="/static/frontend/apple-touch-icon.png"
+          href="/public/favicon/apple-touch-icon.png"
         />
 
-        <link rel="manifest" href="/static/frontend/site.webmanifest" />
+        <link rel="manifest" href="/public/favicon/site.webmanifest" />
         <meta charSet="utf-8" />
         <meta
           name="viewport"
@@ -44,7 +44,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         />
 
         <Links />
-        <title>Shushan GH</title>
+        <title>Victoria's GH demo</title>
       </head>
 
       <body>

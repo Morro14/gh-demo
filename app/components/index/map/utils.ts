@@ -183,3 +183,31 @@ export function objDeepMerge(target, source) {
   }
   return target;
 }
+
+export function normalizeZoom(
+  zoom: number,
+  mapContainer: HTMLDivElement,
+  mapSurface: HTMLDivElement,
+) {
+  // limit by min/max values in MAP_OPTIONS
+  const zoomLimited = Math.max(
+    MAP_OPTIONS.zoomMin,
+    Math.min(MAP_OPTIONS.zoomMax, zoom),
+  );
+  // limit by the surface size
+  const zoomNorm = Math.max(
+    Math.max(
+      mapContainer.clientWidth / mapSurface.clientWidth,
+      mapContainer.clientHeight / mapSurface.clientHeight,
+    ),
+    zoomLimited,
+  );
+  return zoomNorm;
+}
+
+export function isZoomWithinLimits(zoom: number) {
+  if (zoom > MAP_OPTIONS.zoomMax || zoom < MAP_OPTIONS.zoomMin) {
+    return false;
+  }
+  return true;
+}
