@@ -1,6 +1,6 @@
 {
-  "name": "Shushan guest-house",
-  "short_name": "Shushan GH",
+  "name": "Victoria's guest-house demo",
+  "short_name": "Victoria's GH",
   "icons": [
     {
       "src": "/android-chrome-192x192.png",
