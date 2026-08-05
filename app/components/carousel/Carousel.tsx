@@ -1,5 +1,5 @@
 import useEmblaCarousel from "embla-carousel-react";
-import type { Image } from "~/types/booking";
+import type { Image } from "~/types/images";
 import CarouselDots from "./CarouselDots";
 import { useNavContextProvider } from "../nav/NavContextProvider";
 import CarouselDotsFullView from "./CarouselDotsFullView";

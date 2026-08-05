@@ -150,7 +150,7 @@ export default function MapPlaceComponent({
           <div
             className={`absolute z-50 mask-radial-at-center mask-radial-from-100% w-[36px] h-[36px] rounded-[20px] left-[2px] top-[2px]`}
             style={{
-              backgroundImage: `url(${MEDIA_BASE_URL + place.images[0]?.variants.small})`,
+              backgroundImage: `url(${MEDIA_BASE_URL + place.images[0]?.variants.tiny})`,
               backgroundSize: "contain",
             }}
           />

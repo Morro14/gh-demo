@@ -1,7 +1,7 @@
 import { useFetchV3 } from "~/utils/fetchHook";
 import MediaFullView from "../MediaFullView";
 import { useNavContextProvider } from "../nav/NavContextProvider";
-import type { Image } from "~/types/booking";
+import type { Image } from "~/types/images";
 import type { ImageRes } from "~/types/general";
 import useEmblaCarousel from "embla-carousel-react";
 import { ImageLoading } from "../ImageLoading";

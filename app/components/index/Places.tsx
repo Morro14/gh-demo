@@ -1,7 +1,7 @@
 import { useFetchV3, useFetchWithTranslation } from "~/utils/fetchHook.ts";
 import Nav from "../nav/Nav.tsx";
 import { useNavContextProvider } from "../nav/NavContextProvider.tsx";
-import type { Image } from "~/types/booking.ts";
+import type { Image } from "~/types/images.ts";
 import { useMemo, useState } from "react";
 import MediaFullView from "../MediaFullView.tsx";
 import { wikipediaLogo } from "~/components/svg/wikipediaLogo.tsx";

@@ -1,14 +1,4 @@
-export interface Image {
-  order: number;
-  variants: {
-    blur: string;
-    small: string;
-    main: string;
-    original?: string;
-    full?: string;
-  };
-  alt_text: string;
-}
+import type { Image } from "./images";
 export interface Room {
   slug: string;
   name: string;

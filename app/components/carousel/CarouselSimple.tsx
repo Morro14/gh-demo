@@ -1,4 +1,4 @@
-import type { Image } from "~/types/booking";
+import type { Image } from "~/types/images";
 import useEmblaCarousel from "embla-carousel-react";
 import { useEffect, useState } from "react";
 import { ImageLoading } from "../ImageLoading";
