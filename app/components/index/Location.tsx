@@ -8,7 +8,12 @@ export default function LocationMain() {
 
   return (
     <div className="flex md:flex-row flex-col items-center md:justify-center col-span-2 font-sans md:gap-5 gap-2 text">
-      <span className="flex gap-2 underline hover:cursor-pointer relative group">
+      <span
+        className="flex gap-2 underline hover:cursor-pointer relative group"
+        onTouchStart={(e) => {
+          handleTooltipTouch(e);
+        }}
+      >
         <Tooltip
           attrs={{ id: "map-loc-tooltip" }}
           styleProps={{ left: 10, top: -60 }}
@@ -20,9 +25,12 @@ export default function LocationMain() {
       <span
         className="underline hover:cursor-pointer relative group"
         aria-disabled
+        onTouchStart={(e) => {
+          handleTooltipTouch(e);
+        }}
       >
         <Tooltip
-          attrs={{ id: "map-loc-tooltip" }}
+          attrs={{ id: "map-guide-tooltip" }}
           styleProps={{ left: 10, top: -60 }}
           content={t("Link is disabled for the demo")}
         ></Tooltip>
@@ -54,7 +62,7 @@ export default function LocationMain() {
       >
         {t("Transfer")}
         <Tooltip
-          attrs={{ id: "map-loc-tooltip" }}
+          attrs={{ id: "map-transfer-tooltip" }}
           styleProps={{ left: 10, top: -60 }}
           content={t("Link is disabled for the demo")}
         ></Tooltip>

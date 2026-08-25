@@ -6,6 +6,7 @@ import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import dayjs from "dayjs";
 import Spinner from "../status/Spinner";
 import { desktopDatePickerSx } from "../formComponents/mui";
+import { useIndexBookingContextProvider } from "../booking/IndexBookingContextProvider";
 
 export default function BookingPannelMobile() {
   const { t } = useTranslation();
@@ -16,6 +17,8 @@ export default function BookingPannelMobile() {
   const navigation = useNavigation();
   let modalShow = false;
   const dialogRef = useRef<null | HTMLDialogElement>(null);
+  const context = useIndexBookingContextProvider();
+  const errors = context.errors;
   return (
     <div className="group xl:hidden fixed bottom-0 z-30 w-full">
       <dialog
@@ -27,7 +30,7 @@ export default function BookingPannelMobile() {
         <Form
           ref={formRef}
           method="post"
-          className={`fixed bottom-10 flex w-screen flex-col items-center overflow-visible bg-bg gap-6 py-6 font-sans text-text-main h-[336px]`}
+          className={`fixed bottom-10 flex w-screen flex-col items-center overflow-visible bg-bg gap-6 py-6 font-sans text-text-main h-[360px]`}
         >
           <div className="flex flex-col items-center gap-1">
             <label className="" htmlFor="checkin-date-input">
@@ -68,13 +71,14 @@ export default function BookingPannelMobile() {
                 name="nights"
               />
             </div>
+            <div className="h-2 text-red-error">{errors?.nights?.message}</div>
           </div>
           {navigation.state === "submitting" ? (
             <Spinner></Spinner>
           ) : (
             <button
               type="submit"
-              className="font-medium underline mx-9 cursor-pointer"
+              className={`font-medium underline mx-9 cursor-pointer `}
             >
               {t("Continue")}
             </button>

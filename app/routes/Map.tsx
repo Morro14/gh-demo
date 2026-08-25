@@ -14,7 +14,7 @@ export default function MapPage() {
   const nav = useNavigation();
   const dialogRef = useRef<null | HTMLDialogElement>(null);
   return (
-    <div className="w-screen h-screen flex flex-col justify-center items-center">
+    <div className="w-screen h-screen flex flex-col items-center">
       <header className="flex w-full xl:px-5 md:px-4 px-2 py-1 h-10">
         <div className="w-1/3">
           <NavLink className="relative top-0.5 font-medium" to={`/${lang}`}>
@@ -35,7 +35,7 @@ export default function MapPage() {
         className={`h-0.5 w-full ${nav.state !== "idle" ? "gradient-line" : "bg-primary"}`}
       ></div>
       <div id="map-console" className="text-left w-full pl-2"></div>
-      <div className="flex flex-col items-center w-full h-full">
+      <div className="flex flex-col items-center w-250 h-250 border border-text-main mt-6">
         <MapContextProvider>
           <Map options={MAP_OPTIONS}></Map>
         </MapContextProvider>
