@@ -90,11 +90,11 @@ export default function BookingForm({ actionData }: Route.ComponentProps) {
           </div>
         </div>
 
-        <fieldset className="flex flex-col items-center md:gap-3 gap-3">
+        <fieldset className="flex flex-col items-center md:gap-3 gap-3 h-15">
           <legend className="hidden  text-gray-warm-mid text-sm">
             {t("Guests")}
           </legend>
-          <div className="flex p-4 bg-bg gap-4 h-full">
+          <div className="flex bg-bg gap-4 h-full">
             <div className="flex flex-col items-center md:gap-3 gap-2">
               <label className="text-sm" htmlFor="select-adults">
                 {t("adults", { context: "genetive" })}
@@ -124,13 +124,13 @@ export default function BookingForm({ actionData }: Route.ComponentProps) {
           </div>
         </fieldset>
 
-        <div className="flex flex-col items-center gap-3">
+        <div className="flex flex-col items-center gap-3 h-15">
           <label className="text-gray-warm-mid text-sm" htmlFor="nights-input">
             {t("Nights")}
           </label>
           <div className="flex h-full w-[132px] justify-center items-center">
             <input
-              className={`text-center font-medium w-9 placeholder:text-center placeholder:text-[#4c3b3350] placeholder:italic focus:placeholder:text-gray-400 border-b-1 ${actionData?.nights ? "border-red-error" : "border-line-light"} `}
+              className={`text-center text-lg font-medium w-9 placeholder:text-center placeholder:text-[#4c3b3350] placeholder:italic focus:placeholder:text-gray-400 border-b-1 ${actionData?.nights ? "border-red-error" : "border-line-light"} `}
               name="nights"
               defaultValue={Number(searchParams.nights)}
               type="number"

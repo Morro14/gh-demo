@@ -93,7 +93,7 @@ export default function AvailableRoom({
       <legend className="sr-only">{room.name}</legend>
       <div className="h-full flex flex-col justify-between">
         <div>
-          <div className="w-[336px] md:w-[314px] h-[190px] mt-2">
+          <div className="w-[336px] md:w-[314px] h-[190px] mt-2 mx-auto">
             <ImageLoading
               imageAttrs={{
                 className:
