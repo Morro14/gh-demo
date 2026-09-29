@@ -51,8 +51,8 @@ export default function Index() {
         <CarouselReviews></CarouselReviews>
       </div>
       <div className="flex flex-col items-center gap-15">
-        <div className="index-container-1 relative flex flex-col items-center gap-8">
-          <div className="mt-8 w-full space-y-3">
+        <div className="index-container-1 relative flex flex-col items-center gap-10">
+          <div className="mt-10 w-full space-y-3">
             <NavHorizontal></NavHorizontal>
             {/* {line} */}
           </div>
@@ -101,7 +101,7 @@ export default function Index() {
 
       <div
         id="points-of-interest"
-        className="flex flex-col gap-6 mt-[18px] relative scroll-mt-15"
+        className="flex flex-col gap-6 mt-20 relative scroll-mt-15"
       >
         <div>
           <h2 className="text-center">{t("Victoria Bay")}</h2>
