@@ -56,7 +56,7 @@ export default function Index() {
             <NavHorizontal></NavHorizontal>
             {/* {line} */}
           </div>
-          <div className="text-4xl mt-2">ꕥ</div>
+          {/* <div className="text-4xl mt-2">ꕥ</div> */}
           <div id="about" className="w-full">
             <Paragraph
               content={pageContent.find((item) => item.tag === "about")}
@@ -93,7 +93,7 @@ export default function Index() {
           ) : (
             ""
           )}
-          <div className="text-4xl mb-2 mt-2">ꕥ</div>
+          {/* <div className="text-4xl mb-2 mt-2">ꕥ</div> */}
         </div>
       </div>
 

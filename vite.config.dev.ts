@@ -28,9 +28,9 @@ export default defineConfig({
       ],
     },
     port: 5173,
-    host: "frontend.test",
+    host: "localhost",
     strictPort: true,
-    allowedHosts: ["frontend.test"],
+    allowedHosts: ["localhost"],
     // proxy: {
     //   "/api": {
     //     target: "http://backend.test:8000",
