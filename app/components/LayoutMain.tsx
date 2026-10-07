@@ -23,7 +23,7 @@ export default function LayoutMain() {
                 .defaultProps.localeText
             }
           >
-            <Header></Header>
+            {/* <Header></Header> */}
             <div className="flex flex-col justify-between min-h-full">
               <Outlet></Outlet>
               <Footer></Footer>

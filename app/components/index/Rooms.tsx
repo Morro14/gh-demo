@@ -10,6 +10,8 @@ import { ImageLoading } from "../ImageLoading";
 import PlaceholderParagraph from "../placeholders/PlaceholderParagraph";
 import { useFetchV3 } from "~/utils/fetchHook";
 import Dots from "../status/Dots";
+import Spinner from "../placeholders/Spinner";
+import { useInView } from "react-intersection-observer";
 
 const MEDIA_BASE_URL = import.meta.env.VITE_MEDIA_BASE_URL;
 const ROOMS_NUMBER_SHOW_INIT = 2;
@@ -44,12 +46,13 @@ export default function RoomsPreview() {
         className={`flex w-full flex-col items-center transition-all duration-300 starting:opacity-0 opacity-100 overflow-clip`}
         key={`room-card-${i}`}
       >
-        <div className="md:h-50 h-30  w-full">
+        <div className="md:h-50 h-30 w-full overflow-clip border-2 border-primary ">
           <ImageLoading
+            placeholderLoading={<Spinner></Spinner>}
             imageAttrs={{
               src: `${MEDIA_BASE_URL}${room.images[0]?.variants.small}`,
               className:
-                "object-cover border-2 size-full border-primary cursor-pointer drop-shadow-sm",
+                "object-cover size-full cursor-pointer drop-shadow-sm hover:scale-105 transition-scale duration-300 ease-in-out",
               onClick: () => {
                 context.setItemSelected(i);
                 context.setFullImageView(true);
@@ -105,6 +108,10 @@ export default function RoomsPreview() {
       showMoreButtonHeight;
     return containerHeight;
   };
+  const { ref, inView, entry } = useInView({
+    threshold: 0.3,
+    // triggerOnce: true,
+  });
   return !rooms ? (
     <PlaceholderParagraph></PlaceholderParagraph>
   ) : (
@@ -134,7 +141,10 @@ export default function RoomsPreview() {
       ) : (
         ""
       )}
-      <div className={`grid gap-4 2xl:w-1/2 w-full grid-cols-2`}>
+      <div
+        className={`grid sm:gap-4 gap-2 2xl:w-1/2 w-full grid-cols-2`}
+        ref={ref}
+      >
         {roomCards
           ? roomCards.map((room) => {
               return room;

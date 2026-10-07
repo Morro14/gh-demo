@@ -62,7 +62,7 @@ export default function ImageGrid({
   const heightFirstRow = `2xl:h-92 md:h-55 h-27`;
   const heightRow = `2xl:h-92 md:h-55 h-27`;
   const heightGridFull = `2xl:h-187 md:h-112 h-55`;
-  const heightHalfRow = `2xl:h-45 md:h-26.5 h-13`;
+  const heightHalfRow = `2xl:h-[178px] md:h-26.5 h-13`;
   const gap = "2xl:gap-3 md:gap-2 gap-1 ";
   // flip layout
   const midGidsToReverse = Array.from(

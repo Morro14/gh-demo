@@ -8,6 +8,7 @@
 body {
   @apply m-0 p-0 flex justify-center font-serif bg-bg;
 }
+
 #root {
   width: 100%;
   display: flex;
@@ -15,6 +16,7 @@ body {
   justify-content: center;
   align-items: center;
 }
+
 @theme {
   --color-red-error: #ff2c2c;
   --color-red-error-full: #ff615c;
@@ -60,18 +62,23 @@ body {
 h1 {
   @apply md:text-4xl text-3xl font-medium;
 }
+
 h2 {
   @apply md:text-3xl text-2xl mb-9 font-medium;
 }
+
 h3 {
   @apply md:text-[22px] text-xl mb-4 font-medium;
 }
+
 h4 {
   @apply text-xl mb-4 font-medium;
 }
+
 h5 {
   @apply text-lg font-medium;
 }
+
 .float-visible {
   display: flex;
 }
@@ -79,28 +86,38 @@ h5 {
 .float-hidden {
   display: none;
 }
+
 .line-gray-gradient {
   background: #fefdfc;
-  background: linear-gradient(
-    0deg,
-    rgba(254, 253, 252, 1) 0%,
-    rgba(217, 217, 217, 1) 68%
-  );
+  background: linear-gradient(0deg,
+      rgba(254, 253, 252, 1) 0%,
+      rgba(217, 217, 217, 1) 68%);
 }
+
 .header-gradient {
-  background: linear-gradient(
-    90deg,
-    rgba(254, 253, 252, 1) 0%,
-    rgba(244, 244, 244, 1) 53%,
-    rgba(255, 255, 255, 1) 95%
-  );
+  background: linear-gradient(90deg,
+      rgba(254, 253, 252, 1) 0%,
+      rgba(244, 244, 244, 1) 53%,
+      rgba(255, 255, 255, 1) 95%);
 }
+
 .button-primary {
   @apply bg-peach text-white rounded-sm cursor-pointer font-sans font-medium flex justify-center items-center pt-1;
 }
+
 button {
-  @apply hover:cursor-pointer
+  @apply hover:cursor-pointer;
 }
-.map-text-shadow {
-  @apply text-shadow-[-1px_-1px_0px_#FFFFFF,1px_1px_0px_#FFFFFF,-1px_1px_0px_#FFFFFF,1px_-1px_0px_#FFFFFF]!
+
+/* .map-text-shadow { */
+/*   @apply !text-shadow-[-1px_-1px_0px_#FFFFFF, 1px_1px_0px_#FFFFFF, -1px_1px_0px_#FFFFFF, 1px_-1px_0px_#FFFFFF]; */
+/* } */
+
+.reviews-overlay {
+  background: #FFF;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 20%, rgba(255, 255, 255, 0) 80%, rgba(255, 255, 255, 1) 100%);
+}
+
+.nav-link-with-backdrop {
+  @apply relative z-10 overflow-hidden text-center hover:cursor-pointer
 }

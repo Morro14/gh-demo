@@ -4,7 +4,9 @@ import Tooltip from "../Tooltip";
 
 const RATING = 9.8;
 const BOOKING_URL = "";
-
+const backdrop = (
+  <div className="absolute -z-2 top-0 h-full w-full -translate-x-full bg-apricot-light group-hover:translate-x-0 transition-all duration-300 ease-out"></div>
+);
 export default function NavHorizontal() {
   const { t, i18n } = useTranslation();
   return (
@@ -14,23 +16,26 @@ export default function NavHorizontal() {
           const el = document.getElementById("about");
           el.scrollIntoView({ behavior: "smooth" });
         }}
-        className="text-center hover:cursor-pointer"
+        className="group nav-link-with-backdrop"
       >
-        <span className="px-3 pt-1 ">{t("About")}</span>
+        {backdrop}
+        <span className="px-3 pt-1 relative">{t("About")}</span>
       </button>
       <button
         onClick={() => {
           const el = document.getElementById("contacts");
           el.scrollIntoView({ behavior: "smooth" });
         }}
-        className="text-center hover:cursor-pointer"
+        className="group nav-link-with-backdrop"
       >
+        {backdrop}
         <span className="px-3 pt-1 ">{t("Contact")}</span>
       </button>
       <Link
         to={`/${i18n.language}/booking/change-request-info`}
-        className="text-end hover:cursor-pointer "
+        className="text-end! group nav-link-with-backdrop "
       >
+        {backdrop}
         <span className=" px-3 pt-1 rounded">{t("Book")}</span>
       </Link>
       {/* <div className="max-2xl:hidden h-5 w-0.5 bg-gray-warm-light"></div> */}
@@ -39,14 +44,16 @@ export default function NavHorizontal() {
           const el = document.getElementById("points-of-interest");
           el.scrollIntoView({ behavior: "smooth" });
         }}
-        className="text-center hover:cursor-pointer"
+        className="group nav-link-with-backdrop"
       >
+        {backdrop}
         <span className="px-3 pt-1 ">{t("Points of interest")}</span>
       </button>
       {/* <div className="max-2xl:hidden h-5 w-0.5 bg-gray-warm-light"></div> */}
       <div className="flex justify-start gap-3">
-        <div className="flex items-center gap-1 ">
-          <div className="hover:cursor-pointer text-nowrap relative group">
+        <div className="flex items-center gap-1">
+          <div className="hover:cursor-pointer text-nowrap relative group nav-link-with-backdrop">
+            {backdrop}
             <Tooltip
               attrs={{ id: "map-loc-tooltip" }}
               styleProps={{ left: 10, top: -40 }}
@@ -54,7 +61,7 @@ export default function NavHorizontal() {
             ></Tooltip>
             {"Booking.com " + t(" reviews", { keySeparator: ">" })}
           </div>
-          <div className="flex items-center gap-1">
+          <div className="flex items-center gap-1 no-underline!">
             <div className="">{star}</div>
             <div className="font-serif">{RATING}</div>
           </div>

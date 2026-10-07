@@ -8,7 +8,7 @@ export interface ParagraphType {
 
 export default function Paragraph({
   content,
-  titleSize = "h3",
+  titleSize = "h2",
   centered = true,
   subtitle,
 }: {
@@ -42,7 +42,7 @@ export default function Paragraph({
           ""
         )}
         {subtitle ? <h3>{subtitle}</h3> : ""}
-        <p className="font-sans font-[350] md:text-base text-pretty w-full whitespace-pre-wrap">
+        <p className="font-sans font-[350] md:text-lg text-pretty w-full whitespace-pre-wrap">
           {content.body}
         </p>
       </div>

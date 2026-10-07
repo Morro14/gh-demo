@@ -37,10 +37,10 @@ export default function Index() {
     }
   }, [URLSearchParams]);
   return (
-    <div className="flex grow flex-col items-stretch text-text-main bg-bg min-h-screen ">
-      <div className="flex flex-col items-center md:gap-8 gap-6">
+    <div className="flex grow flex-col items-stretch text-text-main bg-bg min-h-screen mt-[124px]">
+      <div className="flex flex-col items-center md:gap-12 gap-6">
         <div className="flex flex-col items-center">
-          <h1 className="mt-11 mb-3 tracking-wide">{t("index-title")}</h1>
+          <h1 className="mt-12 mb-3 tracking-wide">{t("index-title")}</h1>
           <h2 className="mb-0!">{t("Some subtitle")}</h2>
         </div>
         <NavContextProvider>
@@ -50,9 +50,9 @@ export default function Index() {
         </NavContextProvider>
         <CarouselReviews></CarouselReviews>
       </div>
-      <div className="flex flex-col items-center gap-15">
-        <div className="index-container-1 relative flex flex-col items-center gap-10">
-          <div className="mt-10 w-full space-y-3">
+      <div className="flex flex-col items-center gap-16">
+        <div className="index-container-1 relative flex flex-col items-center gap-16">
+          <div className="mt-16 w-full space-y-3">
             <NavHorizontal></NavHorizontal>
             {/* {line} */}
           </div>

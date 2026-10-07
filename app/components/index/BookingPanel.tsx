@@ -3,13 +3,14 @@ import { useIndexBookingContextProvider } from "~/components/booking/IndexBookin
 import { useTranslation } from "react-i18next";
 import ErrorPanel from "~/components/formComponents/ErrorPanel";
 import dayjs from "dayjs";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { ThemeProvider } from "@mui/material";
 import { desktopDatePickerTheme } from "../formComponents/mui.tsx";
 import { desktopDatePickerSx } from "../formComponents/mui.tsx";
 import BookingPanelButton from "./BookingPanelButton.tsx";
 import { genGuestOptions } from "~/components/formComponents/utils.tsx";
+import Header from "../Header.tsx";
 
 export default function BookingPanel() {
   const today = dayjs();
@@ -18,8 +19,33 @@ export default function BookingPanel() {
   const { t } = useTranslation();
   const context = useIndexBookingContextProvider();
   const navigation = useNavigation();
+  const [showHeader, setShowHeader] = useState(true);
+  // const [scrollPrev, setScrollPrev] = useState(true);
+  console.log("showHeader", showHeader);
+  useEffect(() => {
+    let scrollPrev = window.scrollY;
+    // const id = Math.random();
+    const onScrollAction = (event) => {
+      console.log({
+        scrollY: window.scrollY,
+        scrollPrev,
+        direction: window.scrollY > scrollPrev ? "down" : "up",
+      });
+      setShowHeader(window.scrollY <= scrollPrev);
+      scrollPrev = window.scrollY;
+    };
+    window.addEventListener("scroll", onScrollAction);
+    return () => {
+      window.removeEventListener("scroll", onScrollAction);
+    };
+  }, []);
   return (
-    <div className="xl:flex sticky hidden top-0 bottom-0 z-30 w-full h-12 justify-center bg-[#ffffff99] backdrop-blur-xl drop-shadow">
+    <div
+      className={`xl:flex xl:flex-col fixed hidden top-0 bottom-0 z-50 w-screen ${showHeader ? "h-31" : "h-12"} justify-end bg-[#ffffff99] backdrop-blur-xl drop-shadow transition-[height] duration-300`}
+    >
+      <div className={`z-101 `}>
+        <Header></Header>
+      </div>
       <div className={`size-full absolute bg-bg drop-shadow opacity-70`}></div>
       <div className="flex justify-center items-center size-full font-source-sans border-x border-accent-lighter">
         <Form
