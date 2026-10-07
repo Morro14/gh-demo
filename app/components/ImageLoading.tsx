@@ -32,7 +32,7 @@ export function ImageLoading({
         placeholderStatic
       )}
       <div
-        className={`${!loaded && !loadedError ? "block" : "hidden"} size-full flex items-center justify-center`}
+        className={`${!loaded && !loadedError ? "block" : "hidden"} size-full bg-gray-warm-light flex items-center justify-center`}
       >
         {placeholderLoading}
       </div>

@@ -10,7 +10,7 @@ const backdrop = (
 export default function NavHorizontal() {
   const { t, i18n } = useTranslation();
   return (
-    <div className="flex 2xl:flex-row flex-col justify-center items-center 2xl:w-full 2xl:gap-5 gap-1 font-serif text-lg underline">
+    <div className="flex 2xl:flex-row flex-col justify-center items-center 2xl:w-full 2xl:gap-5 gap-1 font-serif text-2xl font-light underline decoration-1 underline-offset-3">
       <button
         onClick={() => {
           const el = document.getElementById("about");

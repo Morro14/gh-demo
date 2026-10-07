@@ -21,16 +21,10 @@ export default function BookingPanel() {
   const navigation = useNavigation();
   const [showHeader, setShowHeader] = useState(true);
   // const [scrollPrev, setScrollPrev] = useState(true);
-  console.log("showHeader", showHeader);
   useEffect(() => {
     let scrollPrev = window.scrollY;
     // const id = Math.random();
     const onScrollAction = (event) => {
-      console.log({
-        scrollY: window.scrollY,
-        scrollPrev,
-        direction: window.scrollY > scrollPrev ? "down" : "up",
-      });
       setShowHeader(window.scrollY <= scrollPrev);
       scrollPrev = window.scrollY;
     };

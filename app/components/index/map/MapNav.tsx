@@ -28,8 +28,8 @@ export default function MapNav() {
     pin: { name: t("Point of interest"), icon: pinSVG, type: "icon" },
   };
   return (
-    <div className="flex justify-between mb-4 items-end p-2">
-      <div className="grid 2xl:grid-flow-col sm:grid-cols-2 gap-x-6 gap-y-1 2xl:grid-rows-[repeat(3,minmax(min-content,1fr))]">
+    <div className="flex justify-between mb-4 items-end p-2 w-full">
+      <div className="grid gap-x-6 gap-y-1 grid-cols-[repeat(auto-fill,minmax(254px,max-content))] w-full">
         {Object.entries(LEGEND).map(([key, value]) => (
           <div className="flex items-center gap-4" key={`map-legend-${key}`}>
             {typeof value.icon !== "string" ? (

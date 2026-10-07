@@ -4,6 +4,7 @@ import { useNavContextProvider } from "../nav/NavContextProvider.tsx";
 import PlaceholderGrayBox from "../placeholders/PlaceholderGrayBox.tsx";
 import type { Grid, GridImageFormats } from "~/types/grid.ts";
 import { index } from "@react-router/dev/routes";
+import Spinner from "../placeholders/Spinner.tsx";
 
 const MEDIA_URL = import.meta.env.VITE_MEDIA_BASE_URL;
 
@@ -56,6 +57,7 @@ export default function ImageGrid({
           },
         }}
         placeholderStatic=<PlaceholderGrayBox></PlaceholderGrayBox>
+        placeholderLoading={<Spinner></Spinner>}
       ></ImageLoading>
     );
   }

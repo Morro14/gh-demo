@@ -115,14 +115,14 @@ export default function Index() {
       </div>
 
       <section id="places" className="flex flex-col items-center">
-        <div className="flex flex-col items-center grow gap-8 2xl:w-[1000px] mt-11 relative">
+        <div className="flex flex-col items-center grow gap-8  mt-11 relative">
           <Paragraph
             content={pageContent.find((item) => item.tag === "places")}
           ></Paragraph>
           <MapContextProvider>
-            <div className="sm:block hidden max-md:w-screen w-full md:h-250 h-190">
+            <div className="sm:block hidden ">
               <MapNav></MapNav>
-              <div className="md:border border-t border-b border-text-main w-full h-full">
+              <div className="md:border border-t border-b border-text-main w-full h-full map-size">
                 <Map options={{ ...MAP_OPTIONS, wheelZoom: false }}></Map>
               </div>
             </div>

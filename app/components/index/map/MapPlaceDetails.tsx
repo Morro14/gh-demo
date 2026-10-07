@@ -20,7 +20,7 @@ export default function MapPlaceDetails({ place }: { place: MapPlaceData }) {
         ></CarouselSimple>
       </div>
       <div className="flex">
-        <h3 className="mb-0! ">{place.name}</h3>
+        <h3 className="mb-0! font-semibold!">{place.name}</h3>
 
         <div className="flex w-full justify-end gap-2 items-center">
           <a href={place.info_link}>
